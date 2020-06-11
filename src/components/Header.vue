@@ -5,9 +5,20 @@
 				<img src="../assets/logo.png" alt="">
 			</div>
 			<ul class="menu">
-				<li v-for="item in menus" :class="{active: item.name == active}" :key="item.name" @click="clickMenu(item.name)">
-					{{item.label}}
+				<li v-if="item.name!='connect'" v-for="item in menus" :class="{active: item.name == active}" :key="item.name"
+				 @click="clickMenu(item.name)">
+					<div class="label">{{item.label}}</div>
+					<div class="label label2">{{item.label2}}</div>
 					<div class="bottomLine"></div>
+				</li>
+				<div class="cutLine">
+					<img src="../assets/images/cut-line.png">
+				</div>
+				<li :class="[active == 'connect'? 'active':'', 'connect']" @click="clickMenu('connect')">
+					<div class="label">联系我们</div>
+					<div class="label label2">CONNECT US</div>
+					<div class="bottomLine"></div>
+					<i class="iconfont icon-kefu"></i>
 				</li>
 			</ul>
 		</div>
@@ -21,7 +32,8 @@
 		data() {
 			return {
 				menus: this.menu,
-				active: this.$route.name
+				active: this.$route.name,
+				isMobile: !!localStorage.getItem("isMobile")
 			}
 		},
 		methods: {
@@ -45,16 +57,17 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		height: 80px;
+		height: 90px;
 		background: rgba(255, 255, 255, 0.95);
-		
-		.headerCon{
+
+		.headerCon {
 			display: flex;
 			width: 80%;
 			max-width: 1280px;
 			margin: 0 auto;
-			height: 80px;
+			height: 90px;
 		}
+
 		.logo {
 			height: 80px;
 			padding-top: 10px;
@@ -71,14 +84,14 @@
 			align-items: center;
 
 			li {
-				width: 100px;
-				height: 60px;
-				line-height: 60px;
+				width: 160px;
+				height: 80px;
 				text-align: center;
 				cursor: pointer;
 				transition: all 0.3s;
 				position: relative;
-				font-size: 16px;
+				font-size: 18px;
+				padding-top: 20px;
 
 				.bottomLine {
 					width: 0px;
@@ -89,22 +102,63 @@
 					transition: all 0.2s;
 					position: absolute;
 					left: 50%;
-					bottom: 5px;
+					bottom: 2px;
 					transform: translateX(-50%);
+				}
+
+				&.connect {
+					line-height: 70px;
+					width: 150px;
+					padding-right: 30px;
+
+					i.iconfont {
+						line-height: 55px;
+						display: block;
+						position: absolute;
+						right: 0px;
+						top: 10px;
+						font-size: 36px;
+						color: #ffb161;
+					}
 				}
 
 				&.active {
 					.bottomLine {
 						opacity: 1;
-						width: 80px;
+						width: 100px;
+					}
+
+					&.connect {
+						.bottomLine {
+							width: 120px;
+						}
+					}
+				}
+				
+				.label {
+					line-height: 24px;
+					letter-spacing: 1px;
+				
+					&.label2 {
+						font-size: 12px;
+						color: #cecac3;
+						line-height: 24px;
+						font-family: -webkit-pictograph;
 					}
 				}
 
 				&:hover {
 					color: #ff7861;
 
+					.label2 {
+						color: #ff7861;
+					}
 				}
 
+			}
+
+			.cutLine {
+				margin: 0 20px;
 			}
 		}
 

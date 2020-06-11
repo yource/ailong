@@ -1,0 +1,16 @@
+{
+  "id": "1879802",
+  "name": "ailong",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "782377",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    }
+  ]
+}
