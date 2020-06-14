@@ -23,13 +23,13 @@ const routes = [{
 	},{
 		path: 'media',
 		name: 'media',
-		label: "新媒体",
+		label: "媒体运营",
 		label2:"NEW MEDIA",
 		component: Case,
 	},{
 		path: 'brand',
 		name: 'brand',
-		label: "品牌建设",
+		label: "品牌设计",
 		label2:"BRAND BUILD",
 		component: Case,
 	},{

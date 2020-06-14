@@ -53,12 +53,14 @@
 
 <style lang="scss">
 	.header {
+		color: #000;
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		height: 90px;
 		background: rgba(255, 255, 255, 0.95);
+		z-index: 9;
 
 		.headerCon {
 			display: flex;
@@ -88,21 +90,20 @@
 				height: 80px;
 				text-align: center;
 				cursor: pointer;
-				transition: all 0.3s;
 				position: relative;
 				font-size: 18px;
-				padding-top: 20px;
+				padding-top: 22px;
 
 				.bottomLine {
 					width: 0px;
-					height: 3px;
+					height: 5px;
 					border-radius: 3px;
 					background: #ffb161;
 					opacity: 0;
 					transition: all 0.2s;
 					position: absolute;
 					left: 50%;
-					bottom: 2px;
+					bottom: -5px;
 					transform: translateX(-50%);
 				}
 
@@ -118,7 +119,7 @@
 						right: 0px;
 						top: 10px;
 						font-size: 36px;
-						color: #ffb161;
+						color: #5c6288;
 					}
 				}
 
@@ -138,12 +139,12 @@
 				.label {
 					line-height: 24px;
 					letter-spacing: 1px;
+					transition: all 0.3s;
 				
 					&.label2 {
 						font-size: 12px;
 						color: #cecac3;
 						line-height: 24px;
-						font-family: -webkit-pictograph;
 					}
 				}
 
