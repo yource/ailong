@@ -3,7 +3,7 @@
 		<div class="darkBottomBg"></div>
 		<div class="content">
 			<div class="top">
-				<div class="topContent">
+				<div class="topContent widthControl">
 					<div class="left">
 						<div class="leftContent">
 							<div class="title">联系我们</div>
@@ -21,7 +21,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="bottom">
+			<div class="bottom widthControl">
 				<div class="left">
 					<div class="menuItem" v-for="item in menus" :class="{active: item.active}" :key="item.name" @click="clickMenu(item.name)">
 						{{item.label}}
@@ -101,9 +101,6 @@
 				.topContent {
 					background: rgba(0, 0, 0, 0.5);
 					height: 100%;
-					width: 80%;
-					max-width: 1280px;
-					margin: 0 auto;
 					display: flex;
 					.left{
 						width: 50%;
@@ -145,9 +142,6 @@
 			}
 
 			.bottom {
-				width: 80%;
-				max-width: 1280px;
-				margin: 0 auto;
 				display: flex;
 				color: #ababab;
 				.left{

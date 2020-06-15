@@ -14,4 +14,10 @@ export default {
 	#app{
 		padding-top: 90px;
 	}
+	.widthControl{
+		width: 80%;
+		min-width:1280px;
+		max-width: 1600px;
+		margin: 0 auto;
+	}
 </style>

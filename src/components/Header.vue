@@ -1,6 +1,6 @@
 <template>
 	<div class="header">
-		<div class="headerCon">
+		<div class="headerCon widthControl">
 			<div class="logo">
 				<img src="../assets/logo.png" alt="">
 			</div>
@@ -53,7 +53,7 @@
 
 <style lang="scss">
 	.header {
-		color: #000;
+		color: #714b2a;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -64,9 +64,6 @@
 
 		.headerCon {
 			display: flex;
-			width: 80%;
-			max-width: 1280px;
-			margin: 0 auto;
 			height: 90px;
 		}
 
@@ -96,9 +93,9 @@
 
 				.bottomLine {
 					width: 0px;
-					height: 5px;
+					height: 4px;
 					border-radius: 3px;
-					background: #ffb161;
+					background: #ff9c21;
 					opacity: 0;
 					transition: all 0.2s;
 					position: absolute;
@@ -123,18 +120,7 @@
 					}
 				}
 
-				&.active {
-					.bottomLine {
-						opacity: 1;
-						width: 100px;
-					}
-
-					&.connect {
-						.bottomLine {
-							width: 120px;
-						}
-					}
-				}
+				
 				
 				.label {
 					line-height: 24px;
@@ -145,6 +131,19 @@
 						font-size: 12px;
 						color: #cecac3;
 						line-height: 24px;
+					}
+				}
+				&.active {
+					color: #000;
+					.bottomLine {
+						opacity: 1;
+						width: 100px;
+					}
+				
+					&.connect {
+						.bottomLine {
+							width: 120px;
+						}
 					}
 				}
 

@@ -15,10 +15,11 @@ const router = new VueRouter({
 	routes
 })
 
-if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+var windowWidth = document.body.clientHeight || window.screen.width;
+if (windowWidth < 1280) {
 	document.body.classList.add("mobile");
-	localStorage.setItem("isMobile","true")
-}else{
+	localStorage.setItem("isMobile", "true")
+} else {
 	localStorage.removeItem('isMobile');
 }
 
