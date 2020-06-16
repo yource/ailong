@@ -61,6 +61,7 @@
 		height: 90px;
 		background: rgba(255, 255, 255, 0.95);
 		z-index: 9;
+		border-bottom: 1px solid #efefef;
 
 		.headerCon {
 			display: flex;

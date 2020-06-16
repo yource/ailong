@@ -1,8 +1,8 @@
 import Login from '@/pages/login'
 import Main from '@/pages/main'
 import Home from '@/pages/home'
-import AboutUs from '@/pages/aboutUs'
-import Case from '@/pages/case'
+import Brand from '@/pages/brand'
+import Media from '@/pages/media'
 import Connect from '@/pages/connect'
 
 const routes = [{
@@ -25,13 +25,13 @@ const routes = [{
 		name: 'media',
 		label: "媒体运营",
 		label2:"NEW MEDIA",
-		component: Case,
+		component: Media,
 	},{
 		path: 'brand',
 		name: 'brand',
 		label: "品牌设计",
 		label2:"BRAND BUILD",
-		component: Case,
+		component: Brand,
 	},{
 		path: 'connect',
 		name: 'connect',

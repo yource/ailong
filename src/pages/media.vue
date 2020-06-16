@@ -1,10 +1,10 @@
 <template>
-	<p>case</p>
+	<p>media</p>
 </template>
 
 <script>
 	export default {
-		name: 'Case'
+		name: 'Media'
 	}
 </script>
 
