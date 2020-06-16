@@ -90,13 +90,40 @@
 				<div class="subTitle"><em></em><span>Brand design</span></div>
 				
 				<div class="item1">
-					<el-carousel :interval="3500" type="card" height="200px" indicator-position="none">
-					    <el-carousel-item v-for="item in 6" :key="item">
-					      <h3 class="medium">{{ item }}</h3>
+					<el-carousel :interval="2000" type="card" height="320px" indicator-position="none" style="width:1000px;margin: 50px auto;" trigger="click">
+					    <el-carousel-item>
+							<div class="sliderItem">
+								<img src="../assets/images/company/1_small.png" alt="">
+							</div>
 					    </el-carousel-item>
+						<el-carousel-item>
+							<div class="sliderItem">
+								<img src="../assets/images/company/2_small.png" alt="">
+							</div>
+						</el-carousel-item>
+						<el-carousel-item>
+							<div class="sliderItem">
+								<img src="../assets/images/company/3_small.png" alt="">
+							</div>
+						</el-carousel-item>
+						<el-carousel-item>
+							<div class="sliderItem">
+								<img src="../assets/images/company/4_small.png" alt="">
+							</div>
+						</el-carousel-item>
+						<el-carousel-item>
+							<div class="sliderItem">
+								<img src="../assets/images/company/5_small.png" alt="">
+							</div>
+						</el-carousel-item>
+						<el-carousel-item>
+							<div class="sliderItem">
+								<img src="../assets/images/company/6_small.png" alt="">
+							</div>
+						</el-carousel-item>
 					  </el-carousel>
 				</div>
-				<div class="title2">艾隆传媒拥有专业设计师和制作团队，为您提供<span>LOGO</span>设计、<span>VI</span>设计以及<span>官网</span>制作等服务，为您的公司提升品牌形象，增加竞争力</div>
+				<div class="title2">艾隆传媒拥有专业设计师和制作团队，为您提供<span>LOGO</span>设计、<span>VI</span>设计以及<span>官网</span>制作等服务，为您提升公司形象，增加品牌竞争力</div>
 				<div class="title3">迅速交稿 · 免费修改 · 满意为止</div>
 				<div class="item2">
 					<img src="../assets/images/logos/1.png" alt="">
@@ -124,8 +151,8 @@
 </template>
 
 <script>
-	import banner1 from '../assets/images/banner1.jpg'
-	import banner2 from '../assets/images/banner2.jpg'
+	import banner1 from '../assets/images/banner1.png'
+	import banner2 from '../assets/images/banner2.png'
 	import section1_1 from '../assets/images/section1_1.png'
 	import section1_2 from '../assets/images/section1_2.png'
 	import section1_3 from '../assets/images/section1_3.png'
@@ -249,8 +276,9 @@
 			}
 		}
 		.section2{
-			background:#f7f7f7;
-			padding-bottom: 30px;
+			background:#f5f6f7;
+			padding-top: 20px;
+			padding-bottom: 70px;
 			.sectionMain{
 				padding-top: 30px;
 				display: flex;
@@ -295,6 +323,7 @@
 						overflow: hidden;
 						transition: all 0.2s;
 						box-shadow: 0 2px 6px #ccc;
+						background-color: #fff;
 						display: flex;
 						.left{
 							width: 200px;
@@ -328,6 +357,20 @@
 			}
 		}
 		.section3{
+			.item1{
+				.sliderItem{
+					width: 500px;
+					height: 320px;
+					padding-top:10px;
+					background: #333;
+					img{
+						display: block;
+						width: 480px;
+						height: 300px;
+						margin: 0 auto;
+					}
+				}
+			}
 			.title2{
 				font-size: 16px;
 				text-align: center;
@@ -343,7 +386,7 @@
 				font-size: 20px;
 				letter-spacing: 2px;
 				line-height: 50px;
-				padding-bottom: 40px;
+				padding-bottom: 60px;
 			}
 			.item2{
 				display: flex;

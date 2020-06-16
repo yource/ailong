@@ -69,12 +69,12 @@
 
 		.logo {
 			height: 80px;
-			padding-top: 10px;
+			padding-top: 5px;
 			flex: 1;
 
 			img {
-				width: 60px;
-				height: 60px;
+				height:80px;
+				width: auto;
 			}
 		}
 
