@@ -6,7 +6,7 @@
 			</div>
 			<ul class="menu">
 				<li v-if="item.name!='connect'" v-for="item in menus" :class="{active: item.name == active}" :key="item.name"
-				 @click="clickMenu(item.name)">
+				 @click="clickMenu(item.goChild || item.name)">
 					<div class="label">{{item.label}}</div>
 					<div class="label label2">{{item.label2}}</div>
 					<div class="bottomLine"></div>
@@ -45,7 +45,11 @@
 		},
 		watch: {
 			$route(to, from) {
-				this.active = to.name
+				if(to.name=="logo" || to.name=="website"){
+					this.active = "brand"
+				}else{
+					this.active = to.name
+				}
 			}
 		}
 	}

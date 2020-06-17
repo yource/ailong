@@ -92,32 +92,32 @@
 				<div class="item1">
 					<el-carousel :interval="2000" type="card" height="320px" indicator-position="none" style="width:1000px;margin: 50px auto;" trigger="click">
 					    <el-carousel-item>
-							<div class="sliderItem">
+							<div class="sliderItem" @click="go('website')">
 								<img src="../assets/images/company/1_small.png" alt="">
 							</div>
 					    </el-carousel-item>
 						<el-carousel-item>
-							<div class="sliderItem">
+							<div class="sliderItem" @click="go('website')">
 								<img src="../assets/images/company/2_small.png" alt="">
 							</div>
 						</el-carousel-item>
 						<el-carousel-item>
-							<div class="sliderItem">
+							<div class="sliderItem" @click="go('website')">
 								<img src="../assets/images/company/3_small.png" alt="">
 							</div>
 						</el-carousel-item>
 						<el-carousel-item>
-							<div class="sliderItem">
+							<div class="sliderItem" @click="go('website')">
 								<img src="../assets/images/company/4_small.png" alt="">
 							</div>
 						</el-carousel-item>
 						<el-carousel-item>
-							<div class="sliderItem">
+							<div class="sliderItem" @click="go('website')">
 								<img src="../assets/images/company/5_small.png" alt="">
 							</div>
 						</el-carousel-item>
 						<el-carousel-item>
-							<div class="sliderItem">
+							<div class="sliderItem" @click="go('website')">
 								<img src="../assets/images/company/6_small.png" alt="">
 							</div>
 						</el-carousel-item>
@@ -125,7 +125,7 @@
 				</div>
 				<div class="title2">艾隆传媒拥有专业设计师和制作团队，为您提供<span>LOGO</span>设计、<span>VI</span>设计以及<span>官网</span>制作等服务，为您提升公司形象，增加品牌竞争力</div>
 				<div class="title3">迅速交稿 · 免费修改 · 满意为止</div>
-				<div class="item2">
+				<div class="item2"  @click="go('logo')">
 					<img src="../assets/images/logos/1.png" alt="">
 					<img src="../assets/images/logos/2.png" alt="">
 					<img src="../assets/images/logos/3.png" alt="">
@@ -135,7 +135,7 @@
 					<img src="../assets/images/logos/7.png" alt="">
 					<img src="../assets/images/logos/8.png" alt="">
 				</div>
-				<div class="item2">
+				<div class="item2"  @click="go('logo')">
 					<img src="../assets/images/logos/9.png" alt="">
 					<img src="../assets/images/logos/10.png" alt="">
 					<img src="../assets/images/logos/11.png" alt="">
@@ -165,6 +165,13 @@
 				slider: [banner1, banner2],
 				section1:[section1_1,section1_2,section1_3],
 				section2:[section2_1]
+			}
+		},
+		methods:{
+			go(n){
+				this.$router.push({
+					name:n
+				})
 			}
 		}
 	}
@@ -395,6 +402,7 @@
 				img{
 					width: 120px;
 					height: 120px;
+					cursor: pointer;
 				}
 			}
 		}

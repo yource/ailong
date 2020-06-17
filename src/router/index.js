@@ -4,6 +4,8 @@ import Home from '@/pages/home'
 import Brand from '@/pages/brand'
 import Media from '@/pages/media'
 import Connect from '@/pages/connect'
+import Website from '@/pages/website'
+import Logo from '@/pages/logo'
 
 const routes = [{
 	path: "/login",
@@ -29,9 +31,19 @@ const routes = [{
 	},{
 		path: 'brand',
 		name: 'brand',
+		goChild:"logo",
 		label: "品牌设计",
 		label2:"BRAND BUILD",
 		component: Brand,
+		children:[{
+			path: 'logo',
+			name: 'logo',
+			component: Logo,
+		},{
+			path: 'website',
+			name: 'website',
+			component: Website,
+		}]
 	},{
 		path: 'connect',
 		name: 'connect',

@@ -13,17 +13,17 @@
 					</div>
 					<div class="right">
 						<div class="qrcode">
-							<img src="../assets/images/myQRcode.png" alt="">
+							<img src="../assets/images/myQRcode1.png" alt="">
 						</div>
 						<div class="qrcode">
-							<img src="../assets/images/myQRcode.png" alt="">
+							<img src="../assets/images/myQRcode2.png" alt="">
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="bottom widthControl">
 				<div class="left">
-					<div class="menuItem" v-for="item in menus" :class="{active: item.active}" :key="item.name" @click="clickMenu(item.name)">
+					<div class="menuItem" v-for="item in menus" :class="{active: item.active}" :key="item.name" @click="clickMenu(item.goChild || item.name)">
 						{{item.label}}
 						<div class="bottomLine"></div>
 					</div>

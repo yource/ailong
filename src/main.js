@@ -12,14 +12,18 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false
 
 const router = new VueRouter({
-	routes
+	routes,
+	scrollBehavior (to, from, savedPosition) {
+	  return { x: 0, y: 0 }
+	}
 })
 
-var windowWidth = document.body.clientHeight || window.screen.width;
+var windowWidth = document.body.clientWidth || window.screen.width;
 if (windowWidth < 1280) {
 	document.body.classList.add("mobile");
 	localStorage.setItem("isMobile", "true")
 } else {
+	document.body.classList.add("pc");
 	localStorage.removeItem('isMobile');
 }
 
