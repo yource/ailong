@@ -35,6 +35,7 @@ const routes = [{
 		label: "品牌设计",
 		label2:"BRAND BUILD",
 		component: Brand,
+		redirect:{name:"logo"},
 		children:[{
 			path: 'logo',
 			name: 'logo',

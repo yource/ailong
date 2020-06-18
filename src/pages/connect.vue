@@ -70,12 +70,28 @@
 				</div>
 			</div>
 		</div>
+		<div class="goTop" @click="goTop" v-if="isMobile">
+			<img src="../assets/images/gotop.png" alt="">
+		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'Connect'
+		name: 'Connect',
+		data(){
+			return{
+				isMobile:this.$root.isMobile
+			}
+		},
+		methods:{
+			goTop(){
+				document.body.scrollIntoView({
+				    behavior: 'smooth',
+				    block: 'start'
+				})
+			}
+		}
 	}
 </script>
 
@@ -180,6 +196,43 @@
 					}
 				}
 			}
+		}
+	}
+	.mobile .connectPage{
+		padding: 30px 0 0;
+		.about{
+			margin-left: 20px;
+			margin-right: 20px;
+			margin-top: 60px;
+			padding: 80px 16px 20px;
+			.logo{
+				width:120px;
+				height: 120px;
+				left: calc(50% - 60px);
+				top: -60px;
+			}
+			p{
+				font-size: 14px;
+				line-height: 28px;
+			}
+		}
+		.people{
+			padding-left: 20px;
+			padding-right: 20px;
+			.peopleItem{
+				flex-direction: column;
+				height: auto;
+				.place,.peopleInfo{
+					border: none;
+				}
+			}
+		}
+		.goTop{
+			width: 100%;
+			height: 72px;
+			text-align: center;
+			padding-top: 10px;
+			background: #404040;
 		}
 	}
 </style>

@@ -21,13 +21,14 @@ const router = new VueRouter({
 var windowWidth = document.body.clientWidth || window.screen.width;
 if (windowWidth < 1280) {
 	document.body.classList.add("mobile");
-	localStorage.setItem("isMobile", "true")
 } else {
 	document.body.classList.add("pc");
-	localStorage.removeItem('isMobile');
 }
 
 new Vue({
+	data:{
+		isMobile: !!(windowWidth<1280)
+	},
 	router,
 	render: h => h(App),
 }).$mount('#app');

@@ -38,7 +38,7 @@
 </script>
 
 <style lang="scss">
-	.brandPage{
+	.pc .brandPage{
 		padding: 50px 0;
 		display: flex;
 		.tabs{
@@ -75,6 +75,30 @@
 		.main{
 			min-height: 500px;
 			flex: 1;
+		}
+	}
+	.mobile .brandPage{
+		.tabs{
+			position: fixed;
+			top: 60px;
+			left: 0;
+			right: 0;
+			height: 60px;
+			background: rgba(255,255,255,0.95);
+			display: flex;
+			border-bottom: 1px solid #dedede;
+			padding-top: 10px;
+			.tabItem{
+				flex: 1;
+				text-align: center;
+				line-height: 50px;
+				&.active{
+					color: #ff9c21;
+				}
+			}
+		}
+		.main{
+			padding-top: 60px;
 		}
 	}
 </style>

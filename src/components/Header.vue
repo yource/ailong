@@ -4,7 +4,7 @@
 			<div class="logo">
 				<img src="../assets/logo.png" alt="">
 			</div>
-			<ul class="menu">
+			<ul class="menu" v-if="!isMobile">
 				<li v-if="item.name!='connect'" v-for="item in menus" :class="{active: item.name == active}" :key="item.name"
 				 @click="clickMenu(item.goChild || item.name)">
 					<div class="label">{{item.label}}</div>
@@ -21,6 +21,14 @@
 					<i class="iconfont icon-kefu"></i>
 				</li>
 			</ul>
+			<el-dropdown v-if="isMobile" :hide-on-click="true" hide-timeout="0">
+				<span class="el-dropdown-link menuIcon" @click="showDropdown">
+					<i class="iconfont icon-weibiaoti15"></i>
+				</span>
+				<el-dropdown-menu slot="dropdown">
+					<div class="dropdownItem" v-for="item in menus" @click="handleCommand(item.name)" :key="item.name" :class="{active: item.name == active}">{{item.label}}</div>
+				</el-dropdown-menu>
+			</el-dropdown>
 		</div>
 	</div>
 </template>
@@ -32,8 +40,8 @@
 		data() {
 			return {
 				menus: this.menu,
-				active: this.$route.name,
-				isMobile: !!localStorage.getItem("isMobile")
+				active: "",
+				isMobile: this.$root.isMobile
 			}
 		},
 		methods: {
@@ -41,13 +49,31 @@
 				this.$router.push({
 					name: clickName
 				})
+			},
+			handleCommand(name) {
+				document.getElementsByClassName("el-dropdown-menu")[0].style.display="none";
+				this.$router.push({
+					name
+				})
+			},
+			showDropdown(){
+				setTimeout(()=>{
+					document.getElementsByClassName("el-dropdown-menu")[0].style.display="block";
+				},300)
+			}
+		},
+		created() {
+			if (this.$route.name == "logo" || this.$route.name == "website") {
+				this.active = "brand"
+			} else {
+				this.active = this.$route.name
 			}
 		},
 		watch: {
 			$route(to, from) {
-				if(to.name=="logo" || to.name=="website"){
+				if (to.name == "logo" || to.name == "website") {
 					this.active = "brand"
-				}else{
+				} else {
 					this.active = to.name
 				}
 			}
@@ -56,7 +82,7 @@
 </script>
 
 <style lang="scss">
-	.header {
+	.pc .header {
 		color: #714b2a;
 		position: fixed;
 		top: 0;
@@ -78,7 +104,7 @@
 			flex: 1;
 
 			img {
-				height:80px;
+				height: 80px;
 				width: auto;
 			}
 		}
@@ -125,26 +151,28 @@
 					}
 				}
 
-				
-				
+
+
 				.label {
 					line-height: 24px;
 					letter-spacing: 1px;
 					transition: all 0.3s;
-				
+
 					&.label2 {
 						font-size: 12px;
 						color: #cecac3;
 						line-height: 24px;
 					}
 				}
+
 				&.active {
 					color: #000;
+
 					.bottomLine {
 						opacity: 1;
 						width: 100px;
 					}
-				
+
 					&.connect {
 						.bottomLine {
 							width: 120px;
@@ -167,5 +195,57 @@
 			}
 		}
 
+	}
+
+	.mobile .header .headerCon {
+		position: fixed;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 60px;
+		display: flex;
+		background: #fff;
+		border-bottom: 1px solid #dedede;
+		box-shadow: 0 0 15px #666;
+
+		.logo {
+			flex: 1;
+			padding: 5px 0 0 10px;
+
+			img {
+				height: 50px;
+			}
+		}
+
+		.el-dropdown {
+			padding-right: 10px;
+			padding-top: 7px;
+
+			.menuIcon {
+				display: block;
+				box-sizing: border-box;
+				width: 40px;
+				height: 40px;
+				padding-top: 6px;
+				padding-left: 9px;
+				border-radius: 50%;
+				border: 1px solid #dedede;
+
+				i.iconfont {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+
+	.mobile .dropdownItem{
+		width: 100px;
+		line-height: 40px;
+		text-align: center;
+		border-bottom: 1px solid #efefef;
+		&.active {
+			color: #ff9c21;
+		}
 	}
 </style>

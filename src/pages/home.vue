@@ -1,7 +1,7 @@
 <template>
 	<div class="homePage">
 		<div class="slider">
-			<el-carousel trigger="click" height="600px" :interval="4500">
+			<el-carousel trigger="click" :height="isMobile? '200px':'600px'" :interval="4500">
 				<el-carousel-item v-for="item in slider" :key="item">
 					<div class="sliderItem" :style="{backgroundImage:'url('+item+')'}"></div>
 				</el-carousel-item>
@@ -48,8 +48,11 @@
 				<div class="subTitle"><em></em><span style="background:#f7f7f7">Agency operation</span></div>
 				<div class="sectionMain">
 					<div class="sectionItem sectionItem1" :style="{backgroundImage:'url('+section2[0]+')'}">
-						<div class="item">
+						<div class="item" v-if="!isMobile">
 							专业的视频拍摄，营销推广，帮您建设自己的抖音号
+						</div>
+						<div class="item" v-if="isMobile">
+							专业的视频拍摄，营销推广<br/>帮您建设自己的抖音号
 						</div>
 					</div>
 					<div class="sectionItem sectionItem2">
@@ -57,27 +60,36 @@
 							<div class="left">
 								<img src="../assets/images/section2_2.png" alt="">
 							</div>
-							<div class="right">
+							<div class="right" v-if="!isMobile">
 								<div class="itemTitle">快手短视频</div>
 								<div class="sub">快手用户主要分布在二三线城市，内容形式为照片、视频和直播。艾隆传媒专业代理快手业务，专注产品，帮您建立自己的快手号。</div>
+							</div>
+							<div class="right" v-if="isMobile">
+								专业代理快手业务，专注产品，帮您建立自己的快手号。
 							</div>
 						</div>
 						<div class="item">
 							<div class="left">
 								<img src="../assets/images/section2_3.png" alt="">
 							</div>
-							<div class="right">
+							<div class="right" v-if="!isMobile">
 								<div class="itemTitle">今日头条</div>
 								<div class="sub">头条会根据每个用户的兴趣、位置等多个维度来推送信息。艾隆传媒专业代理今日头条业务，制作内容，定位客户，精准推广。</div>
+							</div>
+							<div class="right" v-if="isMobile">
+								专业代理今日头条业务，制作内容，定位客户，精准推广。
 							</div>
 						</div>
 						<div class="item">
 							<div class="left">
 								<img src="../assets/images/section2_4.png" alt="">
 							</div>
-							<div class="right">
+							<div class="right" v-if="!isMobile">
 								<div class="itemTitle">微信公众号</div>
 								<div class="sub">微信公众号可以发布信息，也能嫁接H5应用。艾隆传媒专业代理微信公众号，发布文章，管理客户，帮您构建线上商城。</div>
+							</div>
+							<div class="right" v-if="isMobile">
+								专业代理微信公众号，发布文章，管理客户，帮您构建线上商城。
 							</div>
 						</div>
 					</div>
@@ -90,7 +102,7 @@
 				<div class="subTitle"><em></em><span>Brand design</span></div>
 				
 				<div class="item1">
-					<el-carousel :interval="2000" type="card" height="320px" indicator-position="none" style="width:1000px;margin: 50px auto;" trigger="click">
+					<el-carousel :interval="2000" type="card" :height="isMobile?'120px':'320px'" indicator-position="none" :style="{width:isMobile?'360px':'1000px',margin:isMobile?'20px auto':'50px auto'}" trigger="click">
 					    <el-carousel-item>
 							<div class="sliderItem" @click="go('website')">
 								<img src="../assets/images/company/1_small.png" alt="">
@@ -124,18 +136,19 @@
 					  </el-carousel>
 				</div>
 				<div class="title2">艾隆传媒拥有专业设计师和制作团队，为您提供<span>LOGO</span>设计、<span>VI</span>设计以及<span>官网</span>制作等服务，为您提升公司形象，增加品牌竞争力</div>
-				<div class="title3">迅速交稿 · 免费修改 · 满意为止</div>
+				<div class="title3" v-if="!isMobile">迅速交稿 · 免费修改 · 满意为止</div>
 				<div class="item2"  @click="go('logo')">
-					<img src="../assets/images/logos/1.png" alt="">
+					<img src="../assets/images/logos/7.png" alt="">
 					<img src="../assets/images/logos/2.png" alt="">
 					<img src="../assets/images/logos/3.png" alt="">
 					<img src="../assets/images/logos/4.png" alt="">
 					<img src="../assets/images/logos/5.png" alt="">
 					<img src="../assets/images/logos/6.png" alt="">
-					<img src="../assets/images/logos/7.png" alt="">
+					<img src="../assets/images/logos/1.png" alt="">
 					<img src="../assets/images/logos/8.png" alt="">
+					<img v-if="isMobile" src="../assets/images/logos/9.png" alt="">
 				</div>
-				<div class="item2"  @click="go('logo')">
+				<div class="item2"  @click="go('logo')" v-if="!isMobile">
 					<img src="../assets/images/logos/9.png" alt="">
 					<img src="../assets/images/logos/10.png" alt="">
 					<img src="../assets/images/logos/11.png" alt="">
@@ -164,7 +177,8 @@
 			return {
 				slider: [banner1, banner2],
 				section1:[section1_1,section1_2,section1_3],
-				section2:[section2_1]
+				section2:[section2_1],
+				isMobile: this.$root.isMobile
 			}
 		},
 		methods:{
@@ -403,6 +417,118 @@
 					width: 120px;
 					height: 120px;
 					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	.mobile .homePage{
+		.slider{
+			height: 200px;
+			.sliderItem{
+				height: 200px;
+			}
+		}
+		.sectionCon{
+			padding-top: 20px;
+			padding-bottom: 20px;
+			.title{
+				line-height: 40px;
+				font-size: 24px;
+			}
+			.subTitle{
+				height: 36px;
+				line-height: 36px;
+				font-size: 12px;
+				span{
+					padding: 0 14px;
+					height: 36px;
+					line-height: 36px;
+				}
+				em{
+					top: 17px;
+				}
+			}
+		}
+		.section1{
+			.sectionMain{
+				margin-top: 20px;
+				flex-direction: column;
+				align-items: center;
+				.sectionItem{
+					width: 90%;
+					.itemBottom{
+						padding-top: 10px;
+						padding-bottom: 20px;
+						i{
+							padding-right: 10px;
+						}
+					}
+				}
+			}
+		}
+		.section2{
+			padding-bottom: 15px;
+			.sectionMain{
+				flex-direction: column;
+				padding-top: 0;
+				align-items: center;
+				margin-top: 15px;
+				.sectionItem1{
+					margin: 0;
+					flex: auto;
+					width: 90%;
+					height: 340px;
+					margin-bottom: 24px;
+					.item{
+						line-height: 25px;
+						padding: 40px 20px 0;
+						font-size: 16px;
+					}
+				}
+				.sectionItem2{
+					width: 90%;
+					.item{
+						height: 80px;
+						margin-bottom: 20px;
+						.left{
+							width: 110px;
+							img{
+								width: 110px;
+								height: 80px;
+							}
+						}
+						.right{
+							font-size: 13px;
+							line-height: 24px;
+							padding: 14px 15px 0;
+							color: #666;
+						}
+					}
+				}
+			}
+		}
+		.section3{
+			.item1{
+				.sliderItem{
+					width: 200px;
+					height: 120px;
+					padding: 0;
+					img{
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+			.title2{
+				padding: 10px 20px ;
+				line-height: 30px;
+			}
+			.item2{
+				justify-content: space-around;
+				img{
+					width: 28%;
+					height: auto;
 				}
 			}
 		}

@@ -29,4 +29,10 @@
 		display: block;
 	}
 }
+.mobile .logoPage{
+	img{
+		display: block;
+		width: 100%;
+	}
+}
 </style>

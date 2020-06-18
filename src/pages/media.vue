@@ -21,4 +21,10 @@
 			margin: 0 auto 20px;
 		}
 	}
+	.mobile .mediaPage{
+		padding-top: 0;
+		img{
+			width: 100%;
+		}
+	}
 </style>

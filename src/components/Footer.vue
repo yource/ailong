@@ -1,10 +1,11 @@
 <template>
-	<div class="footer">
+	<div class="footer" v-if="!(active=='connect'&&isMobile)">
 		<div class="darkBottomBg"></div>
 		<div class="content">
 			<div class="top">
+				<div class="footerConnect" v-if="isMobile">联系我们</div>
 				<div class="topContent widthControl">
-					<div class="left">
+					<div class="left" v-if="!isMobile">
 						<div class="leftContent">
 							<div class="title">联系我们</div>
 							<div class="item">联系电话：18655533530</div>
@@ -22,7 +23,7 @@
 				</div>
 			</div>
 			<div class="bottom widthControl">
-				<div class="left">
+				<div class="left" v-if="!isMobile">
 					<div class="menuItem" v-for="item in menus" :class="{active: item.active}" :key="item.name" @click="clickMenu(item.goChild || item.name)">
 						{{item.label}}
 						<div class="bottomLine"></div>
@@ -36,7 +37,7 @@
 						Copyright © 2020 艾隆文化传媒版权所有
 					</div>
 					<div class="item">
-						备案号：苏ICP备11018372号-9 <span>创新</span><span>坚守</span><span>成就价值</span>
+						备案号：苏ICP备11018372号-9 <span v-if="!isMobile"><span>创新</span><span>坚守</span><span>成就价值</span></span>
 					</div>
 				</div>
 			</div>
@@ -50,7 +51,9 @@
 		props:["menu"],
 		data(){
 			return{
-				menus:this.menu
+				menus:this.menu,
+				active: "",
+				isMobile: this.$root.isMobile
 			}
 		},
 		methods: {
@@ -64,6 +67,22 @@
 				this.$router.push({
 					name: clickName
 				})
+			}
+		},
+		created() {
+			if (this.$route.name == "logo" || this.$route.name == "website") {
+				this.active = "brand"
+			} else {
+				this.active = this.$route.name
+			}
+		},
+		watch: {
+			$route(to, from) {
+				if (to.name == "logo" || to.name == "website") {
+					this.active = "brand"
+				} else {
+					this.active = to.name
+				}
 			}
 		}
 	}
@@ -168,6 +187,49 @@
 							padding-left: 5px;
 						}
 					}
+				}
+			}
+		}
+	}
+
+	.mobile .footer{
+		height: 436px;
+		margin-top: 40px;
+		.content{
+			.top{
+				position: relative;
+				padding: 60px 0 0;
+				.topContent{
+					background: none;
+					.right{
+						width: 100%;
+						padding: 0;
+						.qrcode{
+							box-shadow: 0 0 10px #666;
+						}
+					}
+				}
+				.footerConnect{
+					height: 60px;
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 0;
+					background: rgba(0,0,0,0.3);
+					color: #fff;
+					line-height: 60px;
+					font-size: 18px;
+					letter-spacing: 2px;
+					text-align: center;
+				}
+			}
+			.bottom{
+				.mid{
+					text-align: center;
+					width: 50px;
+				}
+				.right{
+					padding-right: 15px;
 				}
 			}
 		}
