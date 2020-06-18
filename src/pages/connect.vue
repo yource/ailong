@@ -12,7 +12,7 @@
 					<img src="../assets/images/place1.png" alt="">
 					<div class="placeBottom">
 						<div class="place1">浙江办事处</div>
-						<div class="place2"><i class="el-icon-location-information"></i>江苏省南京市栖霞区兴智路6号兴智科技园A座12楼</div>
+						<div class="place2"><i class="el-icon-location-information"></i><span style="padding-left: 5px;">义乌国际生产资料市场A4区20502</span></div>
 					</div>
 				</div>
 				<div class="peopleInfo">
@@ -25,7 +25,7 @@
 							<img src="../assets/images/myQRcode1.png" alt="">
 						</div>
 						<div class="codeNumber">
-							微信:18655533530
+							微信:chinazz2020
 						</div>
 					</div>
 					<div class="qrcodeItem">
@@ -33,7 +33,7 @@
 							<img src="../assets/images/qqQRcode1.png" alt="">
 						</div>
 						<div class="codeNumber">
-							QQ:1135242645
+							QQ:2451007818
 						</div>
 					</div>
 				</div>
@@ -43,7 +43,7 @@
 					<img src="../assets/images/place2.png" alt="">
 					<div class="placeBottom">
 						<div class="place1">江苏办事处</div>
-						<div class="place2"><i class="el-icon-location-information"></i>江苏省南京市栖霞区兴智路6号兴智科技园A座12楼</div>
+						<div class="place2"><i class="el-icon-location-information"></i><span style="padding-left: 5px;">南京市栖霞区兴智路6号兴智科技园A座12楼</span></div>
 					</div>
 				</div>
 				<div class="peopleInfo">
@@ -122,8 +122,12 @@
 				display: flex;
 				.place{
 					width:420px;
-					border-right: 1px solid #dedede;
+					border-right: 1px solid #efefef;
 					position: relative;
+					img{
+						width: 100%;
+						height: 100%;
+					}
 					.placeBottom{
 						position: absolute;
 						bottom: 0;
